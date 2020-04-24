@@ -282,7 +282,7 @@ class LabelTMPC(LabelBase):
 
 skip_labels = [ 
 	"TIMO", "HUES", "SCEN", "YAVG", "ISOE", "FACE", "SHUT", "WBAL", "WRGB", "UNIF", "FCNM", "MTRX", "ORIN", "ORIO",
-	"FWVS", "KBAT", "ATTD",	"GLPI",	"VFRH",	"BPOS",	"ATTR",	"SIMU",	"ESCS",	"SCPR",	"LNED",	"CYTS",	"CSEN" 
+	"FWVS", "KBAT", "ATTD",	"GLPI",	"VFRH",	"BPOS",	"ATTR",	"SIMU",	"ESCS",	"SCPR",	"LNED",	"CYTS",	"CSEN", "CORI"
 ]
 
 labels = {
@@ -347,8 +347,8 @@ labels = {
 		"SCPR" : LabelEmpty, ## Karma Drone
 		"LNED" : LabelEmpty, ## Karma Drone
 		"CYTS" : LabelEmpty, ## Karma Drone
-		"CSEN" : LabelEmpty ## Karma Drone
-	
+		"CSEN" : LabelEmpty, ## Karma Drone
+
 }
 
 def Manage(klvdata):

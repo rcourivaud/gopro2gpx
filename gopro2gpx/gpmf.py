@@ -17,20 +17,21 @@ import array
 import sys
 import struct
 
-from ffmpegtools import FFMpegTools
-from klvdata import KLVData
+from gopro2gpx.config import Config
+from .ffmpegtools import FFMpegTools
+from .klvdata import KLVData
 
        
 
 class Parser:
-    def __init__(self, config):
-        self.config = config
+    def __init__(self, config:Config):
+        self.config:Config = config
         self.ffmtools = FFMpegTools(self.config)
 
         # map some handy shortcuts
         self.verbose = config.verbose
-        self.file = config.file
-        self.outputfile = config.outputfile
+        self.file = config.input_file
+        self.outputfile = config.output_file
 
     
     def readFromMP4(self):

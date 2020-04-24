@@ -28,22 +28,39 @@ My idea is process the file in python, extract the data, and build a file in a k
 
 # Installation
 
-1. Clone the repo [gopro2gpx](https://github.com/juanmcasillas/gopro2gpx.git) in your machine, extract it.
-2. Ensure you have **python3**, **FFmpeg** and **FFprobe** installed in your system.
-3. Edit `config.py` and modify the following lines to point to your binaries:
+1. 
 
+```bash
+pip install gopro2gpx
+```
+2. Ensure you have **python3**, **FFmpeg** and **FFprobe** installed in your system.
+
+For windows
 ```python    
-     if platform.system().lower() == 'windows':
-        config = Config('C:\\Software\\ffmpeg\\bin\\ffmpeg.exe', 'C:\\Software\\ffmpeg\\bin\\ffprobe.exe')
-    else:
-        config = Config('/usr/local/bin/ffmpeg', '/usr/local/bin/ffprobe')
-```    
+    
+     setx FFMPEG_PATH "C:\\Software\\ffmpeg\\bin\\ffmpeg.exe"
+     setx FFPROBE_PATH "C:\\Software\\ffmpeg\\bin\\ffprobe.exe"
+ ```    
+
+For MacOS or Linus 
+```bash
+     export FFMPEG_PATH= '/usr/local/bin/ffmpeg'
+     export FFPROBE_PATH= '/usr/local/bin/ffprobe'
+ 
+```
+
 
  4. Run it (skip bad points, show the labels debug, create `hero6.kml` and `hero6.gpx` files)
 
  ```shell
-    % python gopro2gpx.py -s -vvv samples/hero6.mp4 hero6
+    % extract_gps -s -vvv -i samples/hero6.mp4 -o hero6
  ```
+
+```python
+from gopro2gpx import extract
+
+results = extract(input_file="<PATH_TO_VIDEO>", output_file=None, format="GPX", verbose=1, binary=False, skip=True)
+```
 
 # Arguments and options
 

@@ -42,6 +42,10 @@ class FFMpegTools:
         # Stream #0:2(eng): Data: none (gpmd / 0x646D7067), 29 kb/s (default)
         reg = re.compile('Stream #\d:(\d)\(.+\): Data: \w+ \(gpmd', flags=re.I|re.M)
         m = reg.search(output)
+        res = reg.search("Stream #0:2(eng): Data: none (gpmd / 0x646D7067), 29 kb/s (default)")
+
+        print(m)
+        print(output)
         
         if not m:
             return(None)

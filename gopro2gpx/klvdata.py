@@ -7,7 +7,9 @@
 #
 
 import struct
-import fourCC
+
+from gopro2gpx.fourCC import Manage, skip_labels
+
 
 class KLVData:
     """
@@ -29,7 +31,7 @@ class KLVData:
         # read now the data, in raw format
         self.rawdata = self.readRawData(data, offset)
         # process the label, if found
-        self.data = fourCC.Manage(self)
+        self.data = Manage(self)
 
 
     def __str__(self):
@@ -57,7 +59,7 @@ class KLVData:
         return i
 
     def skip(self):
-        return self.fourCC in fourCC.skip_labels
+        return self.fourCC in skip_labels
 
 
     def readRawData(self, data, offset):
